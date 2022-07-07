@@ -1,10 +1,5 @@
-from __future__ import print_function
-import json
-import os
-import shutil
+import json, requests, os, shutil
 from zipfile import ZipFile
-
-import requests
 
 owner = "nihui"
 repo = "waifu2x-ncnn-vulkan"
