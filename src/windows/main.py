@@ -8,7 +8,6 @@ path = "C:\Path\waifu2x-ncnn-vulkan"
 
 r = requests.get(f'https://api.github.com/repos/{owner}/{repo}/releases/latest', headers={'Accept': 'application/vnd.github.v3+json'})
 if r.status_code == 200:
-    print(r.text)
     r = json.loads(r.text)
     rr = r['assets'][-1]
     rrr = rr['browser_download_url']
@@ -39,4 +38,5 @@ shutil.copytree(source_dir, destination_dir)
 os.remove('.\waifu2x-ncnn-vulkan-windows.zip')
 shutil.rmtree('.\waifu2x-ncnn-vulkan')
 # 환경변수 설정
-print("환경변수 추가는 수동입니다 :>")
+print("Adding environment variables is manual :>")
+print("pass enter key to continue")
