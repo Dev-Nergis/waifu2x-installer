@@ -1,12 +1,14 @@
-import requests
+from __future__ import print_function
 import json
 import os
 import shutil
 from zipfile import ZipFile
 
+import requests
+
 owner = "nihui"
 repo = "waifu2x-ncnn-vulkan"
-
+path = "C:\Path\waifu2x-ncnn-vulkan"
 
 
 r = requests.get(f'https://api.github.com/repos/{owner}/{repo}/releases/latest', headers={'Accept': 'application/vnd.github.v3+json'})
@@ -19,16 +21,27 @@ if r.status_code == 200:
     print(rrr)
 
 response = requests.get(rrr)
-open("waifu2x-ncnn-vulkan-windows.zip", "wb").write(response.content)
+open('waifu2x-ncnn-vulkan-windows.zip', 'wb').write(response.content)
 
 with ZipFile('waifu2x-ncnn-vulkan-windows.zip', 'r') as zipObj:
    # Extract all the contents of zip file in current directory
    zipObj.extractall()
 
-# os.chdir(name)
+# 폴더 이름 변경
 os.rename(f'{name}', 'waifu2x-ncnn-vulkan')
-source_dir = r".\waifu2x-ncnn-vulkan"
-destination_dir = r"C:\Path\waifu2x-ncnn-vulkan"
+# 이전 Path 파일 삭제
+if (os.path.isdir(path)) == True:
+    shutil.rmtree('C:\Path\waifu2x-ncnn-vulkan')
+elif (os.path.isdir(path)) == False:
+    pass
+else:
+    print("ERROR!")
+    exit()
+##
+source_dir = ".\waifu2x-ncnn-vulkan"
+destination_dir = path
 shutil.copytree(source_dir, destination_dir)
 os.remove('.\waifu2x-ncnn-vulkan-windows.zip')
 shutil.rmtree('.\waifu2x-ncnn-vulkan')
+# 환경변수 설정
+print("환경변수 추가는 수동입니다 :>")
