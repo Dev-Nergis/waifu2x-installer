@@ -92,4 +92,4 @@ os.remove('.\waifu2x-ncnn-vulkan-windows.zip')
 shutil.rmtree('.\waifu2x-ncnn-vulkan')
 # 환경변수 설정
 print("Adding environment variables is manual :>")
-input("pass enter key to continue")
+input("pause enter key to continue")
