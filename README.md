@@ -1,2 +1,2 @@
-# waifu2x-install
-waifu2x-ncnn-vulkan install 
+# waifu2x-installer
+waifu2x-ncnn-vulkan installer
